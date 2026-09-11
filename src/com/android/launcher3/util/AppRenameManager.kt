@@ -42,7 +42,7 @@ object AppRenameManager {
 
         // Force reload launcher model to apply renamed label
         try {
-            LauncherAppState.getInstance(context).model.forceReload()
+            LauncherAppState.getInstance(context).model.forceReload("AppRenameManager")
         } catch (e: Exception) {
             Log.e(TAG, "Error forceReloading after renaming: ${e.message}")
         }

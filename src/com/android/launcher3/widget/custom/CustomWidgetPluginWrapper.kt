@@ -27,7 +27,7 @@ class CustomWidgetPluginWrapper(private val plugin: CustomWidgetPlugin, override
     CustomWidget {
 
     override fun updateWidgetInfo(context: Context, info: LauncherAppWidgetProviderInfo) =
-        plugin.updateWidgetInfo(info)
+        plugin.updateWidgetInfo(info, context)
 
     override fun createView(context: Context, info: LauncherAppWidgetProviderInfo) =
         LauncherAppWidgetHostView(context).apply {

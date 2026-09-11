@@ -724,4 +724,16 @@
     <string name="app_list_settings_title">Ajustes de la lista de apps</string>
     <string name="home_settings_title">Ajustes de pantalla de inicio</string>
     <string name="settings_title">Ajustes de pantalla de inicio</string>
+    <string name="notification_dots_summary_on">Activados</string>
+    <string name="notification_dots_summary_off">Desactivados</string>
+    <string name="at_a_glance_summary_yes">Sí</string>
+    <string name="at_a_glance_summary_no">No</string>
+    <string name="add_icon_to_home_title">Agregar íconos de las apps a la pantalla principal</string>
+    <string name="add_icon_to_home_summary">Para nuevas apps</string>
+    <string name="swipe_to_google_app_title">Deslizar el dedo para acceder a la app de Google</string>
+    <string name="swipe_to_google_app_summary">En la pantalla principal, desliza el dedo hacia la derecha para abrir la app de Google</string>
+    <string name="recents_suggestions_title">Sugerencias en Recientes</string>
+    <string name="recents_suggestions_summary">Muestra indicadores y acciones sugeridas en Recientes</string>
+    <string name="suggestions_summary">Para sugerencias de todas las apps y la pantalla principal</string>
+    <string name="search_settings_summary">Elige qué se muestra en la búsqueda cuando deslizas hacia arriba en la pantalla principal</string>
 </resources>

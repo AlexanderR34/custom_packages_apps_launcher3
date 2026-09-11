@@ -39,7 +39,7 @@ object HiddenAppsManager {
         getPrefs(context).edit().putStringSet(KEY_HIDDEN_APPS, currentSet).apply()
 
         try {
-            LauncherAppState.getInstance(context).model.forceReload()
+            LauncherAppState.getInstance(context).model.forceReload("HiddenAppsManager")
         } catch (e: Exception) {
             Log.e(TAG, "Error forceReloading model after hiding app: ${e.message}")
         }

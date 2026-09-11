@@ -74,8 +74,8 @@ object IconPackManager {
 
         // Reload icons in Launcher
         try {
-            LauncherAppState.getInstance(context).iconCache.clear()
-            LauncherAppState.getInstance(context).model.forceReload()
+            LauncherAppState.getInstance(context).iconCache.close()
+            LauncherAppState.getInstance(context).model.forceReload("IconPackManager")
         } catch (e: Exception) {
             Log.e(TAG, "Error reloading launcher models: ${e.message}")
         }

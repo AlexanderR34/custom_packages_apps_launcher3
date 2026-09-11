@@ -51,6 +51,8 @@
 
     <!-- View ID to use for QSB widget -->
     <item type="id" name="qsb_widget" />
+    <item type="id" name="mic_icon" />
+    <item type="id" name="lens_icon" />
 
     <!-- View ID used by cell layout to jail its content -->
     <item type="id" name="cell_layout_jail_id" />
