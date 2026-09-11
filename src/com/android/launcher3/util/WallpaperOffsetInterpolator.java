@@ -242,8 +242,11 @@ public class WallpaperOffsetInterpolator {
         private float mFinalOffset;
         private float mOffsetX;
 
+        private final Context mContext;
+
         public OffsetHandler(Context context) {
             super(UI_HELPER_EXECUTOR.getLooper());
+            mContext = context;
             mInterpolator = Interpolators.DECELERATE_1_5;
             mWM = WallpaperManager.getInstance(context);
         }
@@ -310,7 +313,7 @@ public class WallpaperOffsetInterpolator {
 
         private void setOffsetSafely(IBinder token) {
             try {
-                boolean scrollingEnabled = com.android.launcher3.LauncherPrefs.getPrefs(mWorkspace.getContext())
+                boolean scrollingEnabled = com.android.launcher3.LauncherPrefs.getPrefs(mContext)
                         .getBoolean("pref_wallpaper_scrolling", true);
                 float offset = scrollingEnabled ? mCurrentOffset : 0.5f;
                 mWM.setWallpaperOffsets(token, offset, 0.5f);

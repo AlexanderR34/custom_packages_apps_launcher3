@@ -23,10 +23,16 @@ object AppRenameManager {
         return context.getSharedPreferences(LauncherFiles.SHARED_PREFERENCES_KEY, Context.MODE_PRIVATE)
     }
 
+    @JvmStatic
     fun getCustomLabel(context: Context, componentName: ComponentName?): String? {
         if (componentName == null) return null
         val key = "${PREFS_CUSTOM_TITLES}_${componentName.flattenToString()}"
         return getPrefs(context).getString(key, null)
+    }
+
+    @JvmStatic
+    fun getCustomLabel(context: Context, componentName: ComponentName?, defaultLabel: CharSequence?): CharSequence? {
+        return getCustomLabel(context, componentName) ?: defaultLabel
     }
 
     fun setCustomLabel(context: Context, componentName: ComponentName?, newLabel: String?) {

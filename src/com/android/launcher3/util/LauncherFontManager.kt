@@ -23,4 +23,10 @@ object LauncherFontManager {
             else -> defaultTypeface ?: Typeface.DEFAULT
         }
     }
+
+    @JvmStatic
+    fun applyFont(textView: android.widget.TextView) {
+        val tf = getTypeface(textView.context, textView.typeface)
+        textView.typeface = tf
+    }
 }
