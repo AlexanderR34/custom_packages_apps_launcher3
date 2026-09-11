@@ -736,4 +736,127 @@
     <string name="recents_suggestions_summary">Muestra indicadores y acciones sugeridas en Recientes</string>
     <string name="suggestions_summary">Para sugerencias de todas las apps y la pantalla principal</string>
     <string name="search_settings_summary">Elige qué se muestra en la búsqueda cuando deslizas hacia arriba en la pantalla principal</string>
+
+    <string name="at_a_glance_header_desc">De un vistazo te muestra la información que necesitas, justo cuando la necesitas, en la pantalla principal y en la pantalla de bloqueo.</string>
+    <string name="use_at_a_glance_title">Usar De un vistazo</string>
+    <string name="show_on_home_title">Mostrar en la pantalla principal</string>
+    <string name="high_contrast_bg_title">Fondo de alto contraste</string>
+
+    <string name="manage_customization_header">Administrar personalización</string>
+    <string name="manage_customization_desc">De un vistazo usa esta configuración para mostrarte contenido apropiado para ti, como eventos, información de tu viaje diario y el pronóstico del clima</string>
+
+    <string name="sensitive_lockscreen_title">Contenido sensible en la pantalla de bloqueo</string>
+    <string name="sensitive_lockscreen_summary">Recibe información personalizada en la pantalla de bloqueo</string>
+
+    <string name="app_data_customization_title">Personalizar con datos de apps</string>
+    <string name="app_data_customization_summary">Para información como el clima, viajes diarios y próximos eventos</string>
+
+    <string name="google_account_customization_title">Personalizar con datos de la Cuenta de Google</string>
+    <string name="google_account_customization_summary">Para información como próximos eventos, recordatorios y viajes</string>
+
+    <string name="google_activity_title">Usar tu actividad de Google</string>
+    <string name="google_activity_summary">Para información precisa sobre el clima, los viajes diarios y otros temas con Historial de ubicaciones y Actividad web y en aplicaciones</string>
+
+    <string name="assistant_results_title">Resultados personales de Asistente</string>
+    <string name="assistant_results_summary">Para recibir información específica para ti, como eventos próximos del Calendario</string>
+
+    <string name="home_work_address_title">Direcciones de casa y de trabajo</string>
+    <string name="home_work_address_summary">Configura una dirección de casa y una de trabajo para obtener información pertinente sobre tus viajes diarios</string>
+
+    <string name="gmail_smart_features_title">Funciones inteligentes de Gmail</string>
+    <string name="gmail_smart_features_summary">Para experiencias personalizadas de contenido de correo electrónico, chat y video, como detalles de vuelos y otra información de viaje</string>
+
+    <string name="location_title">Ubicación</string>
+    <string name="location_summary">Para información precisa sobre el clima y contenido pertinente basado en tu ubicación</string>
+
+    <!-- Personalizar / Customize toggles -->
+    <string name="customize_header">Personalizar</string>
+
+    <string name="toggle_weather_title">Clima</string>
+    <string name="toggle_weather_summary">Información del clima</string>
+
+    <string name="toggle_sports_title">Deportes</string>
+    <string name="toggle_sports_summary">Mostrar novedades deportivas de Google</string>
+
+    <string name="toggle_finance_title">Finanzas</string>
+    <string name="toggle_finance_summary">Mostrar novedades financieras de Google</string>
+
+    <string name="toggle_air_quality_title">Calidad del aire</string>
+    <string name="toggle_air_quality_summary">Alertas sobre la calidad del aire</string>
+
+    <string name="toggle_alerts_title">Alertas</string>
+    <string name="toggle_alerts_summary">Alertas de clima extremo</string>
+
+    <string name="toggle_earthquake_title">Alerta de sismos</string>
+    <string name="toggle_earthquake_summary">Alertar cuando se detecta un sismo cercano con una magnitud superior a 4.5</string>
+
+    <string name="toggle_upcoming_title">Próximamente</string>
+    <string name="toggle_upcoming_summary">Calendario, eventos, reservas de hoteles y recordatorios</string>
+
+    <string name="toggle_work_profile_title">Perfil de trabajo</string>
+    <string name="toggle_work_profile_summary">Calendario, eventos y recordatorios del perfil de trabajo</string>
+
+    <string name="toggle_food_orders_title">Pedidos de comida y artículos domésticos</string>
+    <string name="toggle_food_orders_summary">Estados de entrega y retiro</string>
+
+    <string name="toggle_packages_title">Entrega de paquetes</string>
+    <string name="toggle_packages_summary">Mostrar cuando se entrega o se recoge un paquete</string>
+
+    <string name="toggle_commute_title">Viaje diario</string>
+    <string name="toggle_commute_summary">Información sobre el tráfico y tiempo de viaje</string>
+
+    <string name="toggle_departure_time_title">Hora de salir</string>
+    <string name="toggle_departure_time_summary">Hora de salida recomendada para llegar a próximos eventos</string>
+
+    <string name="toggle_rideshare_title">Transporte compartido</string>
+    <string name="toggle_rideshare_summary">Mostrar el estado del viaje</string>
+
+    <string name="toggle_trips_title">Viajes</string>
+    <string name="toggle_trips_summary">Vuelos, trenes y otra información sobre viajes de Gmail</string>
+
+    <string name="toggle_bedtime_title">Hora de dormir</string>
+    <string name="toggle_bedtime_summary">Tu próxima hora de dormir desde la app de Reloj</string>
+
+    <string name="toggle_fitness_title">Fitness</string>
+    <string name="toggle_fitness_summary">Información sobre tu actividad de algunas de tus apps de fitness</string>
+
+    <string name="toggle_safety_title">Verificación de seguridad</string>
+    <string name="toggle_safety_summary">Cuenta regresiva de la Verificación de seguridad desde la app de Seguridad personal</string>
+
+    <string name="toggle_timer_title">Temporizador y cronómetro</string>
+    <string name="toggle_timer_summary">Información sobre el temporizador y el cronómetro desde la app de Reloj</string>
+
+    <string name="toggle_connected_devices_title">Dispositivos conectados</string>
+    <string name="toggle_connected_devices_summary">Estado de la conexión y la batería de Pixel Buds y más</string>
+
+    <string name="toggle_multi_device_timer_title">Temporizador multidispositivo</string>
+    <string name="toggle_multi_device_timer_summary">Información sobre los temporizadores de los dispositivos de tu casa</string>
+
+    <string name="toggle_doorbell_title">Timbre</string>
+    <string name="toggle_doorbell_summary">Mira quién está en la puerta cuando suena el timbre Nest</string>
+
+    <string name="toggle_flashlight_title">Linterna</string>
+    <string name="toggle_flashlight_summary">Atajo y recordatorio para cuando la linterna está encendida</string>
+
+    <!-- Sugerencias / Suggestions Settings -->
+    <string name="app_suggestions_header">SUGERENCIAS DE APPS</string>
+    <string name="suggestions_in_all_apps_title">Sugerencias en la lista de todas las apps</string>
+    <string name="suggestions_on_home_title">Sugerencias en la pantalla principal</string>
+    <string name="suggestions_on_home_summary">Fila inferior de las apps en la pantalla principal</string>
+    <string name="blocked_apps_title">Apps bloqueadas</string>
+    <string name="suggestions_info_footer">Las sugerencias de aplicaciones se basan en las apps que usaste recientemente, las que más usas y las rutinas</string>
+
+    <!-- Configuración de búsqueda / Search Settings -->
+    <string name="always_show_keyboard_title">Mostrar siempre el teclado</string>
+    <string name="always_show_keyboard_summary">Abre el teclado cuando deslizas el dedo hacia arriba en la pantalla principal para buscar</string>
+    <string name="web_search_title">Búsqueda web</string>
+    <string name="web_search_summary">Mostrar historial de búsqueda y sugerencias de la app de Google</string>
+    <string name="web_search_prefs_title">Preferencias de búsqueda web</string>
+    <string name="web_search_prefs_summary">Administra tu historial de búsqueda y más en la app de Google</string>
+    <string name="control_search_results_title">Controlar los resultados de la búsqueda</string>
+    <string name="control_search_results_summary">Administra lo que se muestra en los resultados de la búsqueda de tus apps, personas y más</string>
+
+    <!-- Configuración de lista de apps / App list settings -->
+    <string name="show_browser_tabs_title">Mostrar tarjetas de pestañas del navegador</string>
+    <string name="show_browser_tabs_summary">Muestra tarjetas para reanudar las pestañas del navegador.</string>
 </resources>
