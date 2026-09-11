@@ -718,4 +718,8 @@
     <string name="icon_pack_default">Predeterminado del sistema</string>
     <string name="app_lock_auth_title">Desbloquear aplicación</string>
     <string name="app_lock_auth_subtitle">Usa tu huella dactilar o PIN para continuar</string>
+    <string name="at_a_glance_title">De un vistazo</string>
+    <string name="suggestions_title">Sugerencias</string>
+    <string name="search_settings_title">Ajustes de búsqueda</string>
+    <string name="app_list_settings_title">Ajustes de la lista de apps</string>
 </resources>
