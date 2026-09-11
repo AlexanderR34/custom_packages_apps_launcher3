@@ -22,7 +22,7 @@ class SmartspaceView @JvmOverloads constructor(
     defStyleAttr: Int = 0
 ) : FrameLayout(context, attrs, defStyleAttr), SmartspaceController.OnDataUpdatedListener {
 
-    private val activityContext: ActivityContext? = ActivityContext.lookupContext<ActivityContext>(context)
+    private val activityContext: ActivityContext? = ActivityContext.lookupContextNoThrow(context)
     private var dateView: TextView? = null
     private var weatherChip: LinearLayout? = null
     private var weatherIcon: ImageView? = null

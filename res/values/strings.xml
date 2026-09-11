@@ -42,16 +42,17 @@
     <!-- Options for recent tasks -->
     <!-- Title for an option to enter split screen mode for a given app -->
     <string name="recent_task_option_split_screen">Split screen</string>
-    <string name="recent_task_option_freeform">Pop-up view</string>
-    <string name="action_edit_label">Edit name</string>
-    <string name="action_lock_app">Bloquear aplicación</string>
+    <string name="recent_task_option_aspect_ratio">Change aspect ratio</string>
     <string name="split_app_info_accessibility">App info for %1$s</string>
     <string name="split_app_usage_settings">Usage settings for %1$s</string>
+    <string name="close_task_accessibility">Close %1$s</string>
 
     <!-- Title for an option to open a new window for a given app   -->
     <string name="new_window_option_taskbar">New Window</string>
     <!-- Title for an option to manage open windows for a given app   -->
     <string name="manage_windows_option_taskbar">Manage Windows</string>
+    <!-- Title for an option to close open windows for a given app   -->
+    <string name="close_app_taskbar">Close</string>
 
     <!-- App pairs -->
     <string name="save_app_pair">Save app pair</string>
@@ -134,12 +135,6 @@
     <!-- Text for both the tile of a popup view, which shows all available widgets installed on
          the device, and the text of a button, which opens this popup view. [CHAR LIMIT=30]-->
     <string name="widget_button_text">Widgets</string>
-    <!-- Search bar text shown in the popup view showing all available widgets installed on the
-         device. [CHAR_LIMIT=50] -->
-    <string name="widgets_full_sheet_search_bar_hint">Search</string>
-    <!-- Spoken text for screen readers. This text lets a user know that the button is used to clear
-         the text that the user entered in the search box. [CHAR_LIMIT=none] -->
-    <string name="widgets_full_sheet_cancel_button_description">Clear text from search box</string>
     <!-- Text shown when there are no widgets or shortcuts that can be added to the device.
          [CHAR_LIMIT=none] -->
     <string name="no_widgets_available">Widgets and shortcuts aren\'t available</string>
@@ -193,6 +188,8 @@
     <!-- Label for the header text of the All Apps section in All Apps view, used to separate Predicted Apps and Actions section from All Apps section. [CHAR_LIMIT=50] -->
     <string name="all_apps_label">All apps</string>
 
+    <string name="all_apps_list_label">Apps list</string>
+
     <!-- Popup items -->
     <!-- Text to display as the header above notifications. [CHAR_LIMIT=30] -->
     <string name="notifications_header">Notifications</string>
@@ -215,6 +212,7 @@
     <string name="all_apps_button_personal_label">Personal apps list</string>
     <string name="all_apps_button_work_label">Work apps list</string>
 
+    <!-- System shortcuts -->
     <!-- Label for remove drop target (from the homescreen only).
          May appear next to uninstall_drop_target_label [CHAR_LIMIT=20] -->
     <string name="remove_drop_target_label">Remove</string>
@@ -235,6 +233,62 @@
     <string name="pin_prediction">Pin Prediction</string>
     <!-- Label for bubbling a launcher item. [CHAR_LIMIT=20] -->
     <string name="bubble">Bubble</string>
+    <!-- Label for enabling App Lock for an app. [CHAR_LIMIT=20] -->
+    <string name="enable_app_lock">App lock</string>
+    <!-- Label for disabling App Lock for an app. [CHAR_LIMIT=20] -->
+    <string name="disable_app_lock">Remove app lock</string>
+    <!-- Label for widget settings shows in the long press menu for widgets. [CHAR_LIMIT=20] -->
+    <string name="widget_settings">Settings</string>
+    <!-- Label for adding (pinning) an item to the taskbar. [CHAR_LIMIT=20] -->
+    <string name="add_to_taskbar">Add to Taskbar</string>
+    <!-- Label for removing (unpinning) an item from the taskbar. [CHAR_LIMIT=20] -->
+    <string name="remove_from_taskbar">Remove from Taskbar</string>
+    <!-- The text of the toast to inform the user that there is no room in the taskbar when the user is trying to pin an item to the taskbar. -->
+    <string name="no_room_in_taskbar">No room in the Taskbar</string>
+    <!-- Accessibility confirmation for item pinned to taskbar. [CHAR_LIMIT=NONE] -->
+    <string name="app_added_to_taskbar">App added to Taskbar</string>
+    <!-- Accessibility confirmation for item unpinned from taskbar. [CHAR_LIMIT=NONE] -->
+    <string name="app_removed_from_taskbar">App removed from Taskbar</string>
+    <!-- Label for remove item system shortcut [CHAR_LIMIT=20] -->
+    <string name="remove_system_shortcut_label">Remove</string>
+    <!-- Context menu action for a file/folder on the home screen which copies the item. [CHAR_LIMIT=20] -->
+    <string name="home_screen_files_context_menu_copy_label">Copy</string>
+    <!-- Context menu action for a file/folder on the home screen which opens the item using its corresponding application. [CHAR_LIMIT=20] -->
+    <string name="home_screen_files_context_menu_open_in_app_label">Open</string>
+    <!-- Context menu action for a file/folder on the home screen which renames the item. [CHAR_LIMIT=20] -->
+    <string name="home_screen_files_context_menu_rename_label">Rename</string>
+    <!-- Context menu action for a file/folder on the home screen which permanently deletes the item. [CHAR_LIMIT=20] -->
+    <string name="home_screen_files_context_menu_delete_permanently_label">
+        Delete permanently
+    </string>
+    <!-- Label for action to remove files or file system folders from home screen by moving the
+         backing file or folder to trash. The action can be shown in the item pop-up menu, or as a
+         drop target when dragging the item on home screen. [CHAR_LIMIT=20] -->
+    <string name="home_screen_files_context_menu_move_to_trash_label">
+        Move to trash
+    </string>
+    <string name="home_screen_files_moved_to_trash_message">
+        Item moved to trash
+    </string>
+    <string name="home_screen_files_move_to_trash_error_message">
+        Can\'t move to trash. Something went wrong.
+    </string>
+    <string name="home_screen_files_restore_from_trash_error_message">
+        Can\'t undo. Go to Files app to restore.
+    </string>
+
+    <!-- Label for expanding system shortcuts in popup menu-->
+    <string name="actions_popup_menu_button">Actions</string>
+    <!-- Label for expanding app shortcuts in popup menu-->
+    <string name="shortcuts_popup_menu_button">Shortcuts</string>
+
+    <!-- Description for expanding system shortcuts in popup menu-->
+    <string name="actions_popup_menu_button_description">Show actions menu</string>
+    <!-- Description for expanding app shortcuts in popup menu-->
+    <string name="shortcuts_popup_menu_button_description">Show app shortcuts menu</string>
+
+    <!-- Label for pausing an app [CHAR_LIMIT=20] -->
+    <string name="pause_app_label">Pause app</string>
 
     <!-- Permissions: -->
     <skip />
@@ -271,6 +325,8 @@
 
     <!-- Default folder title -->
     <string name="folder_hint_text">Edit Name</string>
+    <string name="paginate_left">Paginate left</string>
+    <string name="paginate_right">Paginate right</string>
 
     <!-- Accessibility -->
     <!-- The format string for when an app is temporarily disabled. -->
@@ -282,6 +338,8 @@
             other   {{app_name} has # notifications}
         }
     </string>
+    <!-- content description for hotseat items -->
+    <string name="hotseat_prediction_content_description">Predicted app: <xliff:g id="title" example="Chrome">%1$s</xliff:g></string>
     <skip />
 
     <!-- The format string for default page scroll text [CHAR_LIMIT=none] -->
@@ -290,6 +348,9 @@
     <string name="workspace_scroll_format">Home screen %1$d of %2$d</string>
     <!-- Description for a new page on homescreen[CHAR_LIMIT=none] -->
     <string name="workspace_new_page">New home screen page</string>
+
+    <string name="app_running_state_description">Active</string>
+    <string name="app_minimized_state_description">Minimized</string>
 
     <!-- Folder accessibility -->
     <!-- The format string for when a folder is opened, speaks the dimensions -->
@@ -302,10 +363,22 @@
     <string name="folder_closed">Folder closed</string>
     <!-- Folder renamed format -->
     <string name="folder_renamed">Folder renamed to <xliff:g id="name" example="Games">%1$s</xliff:g></string>
+    <!-- Folder type name when home screen files folder is not supported -->
+    <string name="folder_type_name">Folder</string>
+    <!-- Folder type name when the home screen files folder is supported -->
+    <string name="app_folder_type_name">App folder</string>
     <!-- Folder name format when folder has less than 4 items -->
-    <string name="folder_name_format_exact">Folder: <xliff:g id="name" example="Games">%1$s</xliff:g>, <xliff:g id="size" example="2">%2$d</xliff:g> items</string>
+    <string name="apps_folder_name_format_exact"><xliff:g id="type" example="App folder">%1$s</xliff:g>: <xliff:g id="name" example="Games">%2$s</xliff:g>, <xliff:g id="size" example="2">%3$d</xliff:g> items</string>
+    <!-- Folder name format when folder has less than 4 items and a notification dot -->
+    <string name="apps_folder_name_format_exact_with_dot"><xliff:g id="type" example="App folder">%1$s</xliff:g>: <xliff:g id="name" example="Games">%2$s</xliff:g>, <xliff:g id="size" example="2">%3$d</xliff:g> items, has notifications</string>
     <!-- Folder name format when folder has 4 or more items shown in preview-->
-    <string name="folder_name_format_overflow">Folder: <xliff:g id="name" example="Games">%1$s</xliff:g>, <xliff:g id="size" example="2">%2$d</xliff:g> or more items</string>
+    <string name="apps_folder_name_format_overflow"><xliff:g id="type" example="App folder">%1$s</xliff:g>: <xliff:g id="name" example="Games">%2$s</xliff:g>, <xliff:g id="size" example="2">%3$d</xliff:g> or more items</string>
+    <!-- Folder name format when folder has 4 or more items shown in preview and a notification dot -->
+    <string name="apps_folder_name_format_overflow_with_dot"><xliff:g id="type" example="App folder">%1$s</xliff:g>: <xliff:g id="name" example="Games">%2$s</xliff:g>, <xliff:g id="size" example="2">%3$d</xliff:g> or more items, has notifications</string>
+    <!-- Accessibility announement for unnamed folders -->
+    <string name="unnamed_folder">Unnamed folder</string>
+    <!-- Home screen files folder name -->
+    <string name="files_folder_name">File folder: <xliff:g id="name" example="Documents">%1$s</xliff:g></string>
 
     <!-- App pair accessibility -->
     <!-- App pair name -->
@@ -320,17 +393,26 @@
     <string name="settings_button_text">Home settings</string>
     <!-- Message shown when a feature is disabled by the administrator -->
     <string name="msg_disabled_by_admin">Disabled by your admin</string>
+    <!-- Text for settings button [CHAR LIMIT=20]-->
+    <string name="settings_home_organizer">Home organizer</string>
+    <!-- Text for folder creation [CHAR LIMIT=20]-->
+    <string name="settings_folder_creation" translatable="false">Create Folder</string>
 
     <!-- Strings for settings -->
-    <!-- Title for Allow Rotation setting. [CHAR LIMIT=50] -->
-    <string name="allow_rotation_title">Allow home screen rotation</string>
     <!-- Text explaining when the home screen will get rotated. [CHAR LIMIT=100] -->
     <string name="allow_rotation_desc">When phone is rotated</string>
+    <!-- Title for Compose settings  [CHAR LIMIT=50] -->
+    <string name="compose_developer_options_section">Jetpack Compose</string>
+    <!-- Title for Enable Composition Tracing. [CHAR LIMIT=50] -->
+    <string name="enable_composition_tracing_title">Enable composition tracing</string>
+    <!-- Text explaining composition tracing preference switch. [CHAR LIMIT=100] -->
+    <string name="enable_composition_tracing_desc">Enable composition tracing when taking perfetto trace in overview</string>
 
     <!-- Title for Landscape Mode setting. [CHAR LIMIT=50] -->
     <string name="landscape_mode_title">Landscape mode</string>
+
     <!--  [CHAR LIMIT=100] -->
-    <string name="landscape_mode_desc">Set phone into landscape mode</string>
+    <string name="landscape_mode_desc">Set home screen into landscape mode</string>
 
     <!-- Title for Notification dots setting. Tapping this will link to the system Notifications settings screen where the user can turn off notification dots globally. [CHAR LIMIT=50] -->
     <string name="notification_dots_title">Notification dots</string>
@@ -404,9 +486,6 @@
     <!-- Accessibility action to move item to the current location. [CHAR_LIMIT=30] -->
     <string name="action_move_here">Move item here</string>
 
-    <!-- Accessibility confirmation for item added to workspace. -->
-    <string name="item_added_to_workspace">Item added to home screen</string>
-
     <!-- Accessibility confirmation for item removed. [CHAR_LIMIT=50]-->
     <string name="item_removed">Item removed</string>
 
@@ -430,15 +509,18 @@
 
     <!-- Accessibility description to move item into an existing folder. -->
     <string name="add_to_folder">Add to folder: <xliff:g id="name" example="Games">%1$s</xliff:g></string>
+    <string name="add_to_folder_with_position">Add to <xliff:g id="name" example="Games">%1$s</xliff:g> folder. Row <xliff:g id="number" example="1">%2$s</xliff:g>, column <xliff:g id="number" example="1">%3$s</xliff:g> in <xliff:g id="string" example="Home screen 2 of 4">%4$s</xliff:g></string>
 
     <!-- Accessibility description to move item into an existing folder containing an app. -->
     <string name="add_to_folder_with_app">Add to folder with <xliff:g id="name" example="Messenger">%1$s</xliff:g></string>
+    <string name="add_to_folder_with_app_with_position">Add to folder with <xliff:g id="name" example="Messenger">%1$s</xliff:g>. Row <xliff:g id="number" example="1">%2$s</xliff:g>, column <xliff:g id="number" example="1">%3$s</xliff:g>, in <xliff:g id="string" example="Home screen 2 of 4">%4$s</xliff:g></string>
 
     <!-- Accessibility confirmation for item added to folder. -->
     <string name="added_to_folder">Item added to folder</string>
 
     <!-- Accessibility description to create folder with another item. -->
     <string name="create_folder_with">Create folder with: <xliff:g id="name" example="Game">%1$s</xliff:g></string>
+    <string name="create_folder_with_position">Create folder with <xliff:g id="name" example="Game">%1$s</xliff:g>. Row <xliff:g id="number" example="1">%2$s</xliff:g>, column <xliff:g id="number" example="1">%3$s</xliff:g>, in <xliff:g id="string" example="Home screen 2 of 4">%4$s</xliff:g></string>
 
     <!-- Accessibility confirmation for folder created. -->
     <string name="folder_created">Folder created</string>
@@ -461,11 +543,32 @@
     <!-- Accessibility action to decrease height of a widget. [CHAR_LIMIT=30] -->
     <string name="action_decrease_height">Decrease height</string>
 
+    <!-- Accessibility label for the resize handle shown on start (left in LTR) edge that can be
+     tapped to show resize buttons for widget. [CHAR_LIMIT=30] -->
+    <string name="resize_handle_start">Left resize handle</string>
+    <!-- Accessibility label for the resize handle shown on top edge that can be tapped to show
+     resize buttons for widget. [CHAR_LIMIT=30] -->
+    <string name="resize_handle_top">Top resize handle</string>
+    <!-- Accessibility label for the resize handle shown on end (right in LTR) edge that can be
+     tapped to show resize buttons for widget. [CHAR_LIMIT=30] -->
+    <string name="resize_handle_end">Right resize handle</string>
+    <!-- Accessibility label for the resize handle shown on bottom edge that can be tapped to show
+     resize buttons for widget. [CHAR_LIMIT=30] -->
+    <string name="resize_handle_bottom">Bottom resize handle</string>
+    <!-- Accessibility click label for tap action on the resize handles shown on widgets.
+    [CHAR_LIMIT=30] -->
+    <string name="tap_to_show_resize_buttons">Show resize buttons</string>
     <!-- Accessibility confirmation for widget resize. -->
     <string name="widget_resized">Widget resized to width <xliff:g id="number" example="2">%1$s</xliff:g> height <xliff:g id="number" example="1">%2$s</xliff:g></string>
 
     <!-- Accessibility action to show quick actions menu for an icon. [CHAR_LIMIT=30] -->
     <string name="action_deep_shortcut">Shortcut Menu</string>
+
+    <!-- Accessibility name for the app widget resize frame. -->
+    <string name="widget_frame_name">Widget Resize Frame for <xliff:g id="string" example="Clock">%1$s</xliff:g></string>
+
+    <!-- Accessibility action to close the widget resize frame. [CHAR_LIMIT=30] -->
+    <string name="action_close">Close</string>
 
     <!-- Accessibility action to dismiss a notification in the shortcuts menu for an icon. [CHAR_LIMIT=30] -->
     <string name="action_dismiss_notification">Dismiss</string>
@@ -475,16 +578,17 @@
 
     <!-- Label of tab to indicate personal apps -->
     <string name="all_apps_personal_tab">Personal</string>
-
     <!-- Label of tab to indicate work apps -->
     <string name="all_apps_work_tab">Work</string>
+    <!-- Content description of personal tab to indicate personal apps -->
+    <string name="all_apps_personal_tab_content_description">Personal apps tab</string>
+    <!-- Content description of work tab to indicate work apps -->
+    <string name="all_apps_work_tab_content_description">Work apps tab</string>
 
     <!-- This string is in the work profile tab when a user has All Apps open on their phone. This is a label for a toggle to turn the work profile on and off. "Work profile" means a separate profile on a user's phone that's specifically for their work apps and managed by their company. "Work" is used as an adjective.-->
     <string name="work_profile_toggle_label">Work profile</string>
     <!--- User onboarding title for work profile apps -->
     <string name="work_profile_edu_work_apps">Work apps are badged and visible to your IT admin</string>
-    <!-- Action label to finish work profile edu-->
-    <string name="work_profile_edu_accept">Got it</string>
     <!-- Info icon unicode for alpha scroller when work edu card is present -->
     <string name="work_profile_edu_section" translatable="false">\u24D8</string>
     <!-- Intent for work profiler scheduler -->
@@ -532,153 +636,86 @@
     <string name="ps_container_lock_title">Lock</string>
     <!-- Description for Private Space Transition button -->
     <string name="ps_container_transition">Private Space Transitioning</string>
-    <!-- Pixel Launcher Material 3 Expressive Strings -->
-    <string name="home_settings_title">Configuración de pantalla principal</string>
-    <string name="notification_dots_summary_on">Activados</string>
-    <string name="notification_dots_summary_off">Desactivados</string>
+    <!-- Title for Private Space install app icon -->
+    <string name="ps_add_button_label">Install</string>
+    <!-- Title for Private Space app icon to add files and more to Private Space -->
+    <string name="ps_app_label_override">Add</string>
+    <!-- Content description for install app icon -->
+    <string name="ps_add_button_content_description">Install apps to Private Space</string>
+    <string name="ps_app_content_description">Add files and more to Private Space</string>
 
-    <string name="at_a_glance_title">De un vistazo</string>
-    <string name="at_a_glance_summary_yes">Sí</string>
-    <string name="at_a_glance_summary_no">No</string>
+    <!-- Strings for icon shapes -->
+    <!-- label for circle shape option in customization picker -->
+    <string name="circle_shape_title">Circle</string>
+    <!-- label for square shape option in customization picker -->
+    <string name="square_shape_title">Square</string>
+    <!-- label for 4-sided cookie option shape in customization picker -->
+    <string name="four_sided_cookie_shape_title">4-sided cookie</string>
+    <!-- label for 7-sided cookie option shape in customization picker -->
+    <string name="seven_sided_cookie_shape_title">7-sided cookie</string>
+    <!-- label for arch shape option in customization picker -->
+    <string name="arch_shape_title">Arch</string>
 
-    <string name="add_icon_to_home_title">Agregar íconos de las apps a la pantalla principal</string>
-    <string name="add_icon_to_home_summary">Para nuevas apps</string>
+    <!-- Strings for home screen files -->
+    <!-- Text for create new folder button [CHAR LIMIT=30] -->
+    <string name="create_new_folder_button_text">New folder</string>
+    <!-- Default name for a newly created folder -->
+    <string name="default_new_folder_name">New folder</string>
+    <!-- Clear button label for the dialog which allows the user to rename files/folders. -->
+    <string name="home_screen_files_rename_dialog_clear_button">Clear</string>
+    <!-- Neutral button label for the dialog which allows the user to rename files/folders. -->
+    <string name="home_screen_files_rename_dialog_neutral_button">Cancel</string>
+    <!-- Positive button label for the dialog which allows the user to rename files/folders. -->
+    <string name="home_screen_files_rename_dialog_positive_button">Rename</string>
+    <!-- Title for the dialog which allows the user to rename files. -->
+    <string name="home_screen_files_rename_dialog_file_title">Rename file</string>
+    <!-- Title for the dialog which allows the user to rename folders. -->
+    <string name="home_screen_files_rename_dialog_folder_title">Rename folder</string>
 
-    <string name="swipe_to_google_app_title">Deslizar el dedo para acceder a la app de Google</string>
-    <string name="swipe_to_google_app_summary">En la pantalla principal, desliza el dedo hacia la derecha para abrir la app de Google</string>
+    <!-- Strings for errors -->
+    <!-- Displayed when an error occurs but exact causality cannot be determined/communicated. -->
+    <string name="something_went_wrong">Something went wrong</string>
 
-    <string name="recents_suggestions_title">Sugerencias en Recientes</string>
-    <string name="recents_suggestions_summary">Muestra indicadores y acciones sugeridas en Recientes</string>
+    <!-- Categories for home screen topics -->
+    <string name="topic_category_games" translatable="false">Games</string>
+    <string name="topic_category_audio" translatable="false">Audio</string>
+    <string name="topic_category_video" translatable="false">Video</string>
+    <string name="topic_category_image" translatable="false">Image</string>
+    <string name="topic_category_social" translatable="false">Social</string>
+    <string name="topic_category_news" translatable="false">News</string>
+    <string name="topic_category_maps" translatable="false">Maps</string>
+    <string name="topic_category_productivity" translatable="false">Productivity</string>
+    <string name="topic_category_accessibility" translatable="false">Accessibility</string>
+    <string name="topic_category_most_used" translatable="false">Most Used</string>
+    <string name="topic_category_other" translatable="false">Other</string>
 
-    <string name="suggestions_title">Sugerencias</string>
-    <string name="suggestions_summary">Para sugerencias de todas las apps y la pantalla principal</string>
+    <!-- Screen Creation -->
+    <!-- Title for the screen to create new workspace screens using the organizer. [CHAR_LIMIT=300] -->
+    <string name="organizer_create_screen_title">Create screen</string>
+    <string name="organizer_create_screen_description" >Choose a category to add apps and widgets from your phone</string>
 
-    <string name="search_settings_title">Configuración de búsqueda</string>
-    <string name="search_settings_summary">Elige qué se muestra en la búsqueda cuando deslizas hacia arriba en la pantalla principal</string>
+    <!-- Title for the screen where the users chooses a layout of apps and widgets to add to their
+     home screen. [CHAR_LIMIT=300]-->
+    <string name="organizer_choose_layout_title">Choose layout</string>
 
-    <string name="app_list_settings_title">Configuración de la lista de apps</string>
 
-    <!-- De un vistazo / At a Glance Settings -->
-    <string name="at_a_glance_header_desc">La función De un vistazo te muestra lo que necesitas en el momento indicado en la pantalla principal y en la de bloqueo, a partir de información del teléfono y de tu actividad en los productos de Google. &lt;u>Descubre cómo esta función personaliza tu contenido.&lt;/u></string>
-    <string name="use_at_a_glance_title">Usar De un vistazo</string>
-    <string name="show_on_home_title">Mostrar en la pantalla principal</string>
-    <string name="high_contrast_bg_title">Fondo de alto contraste</string>
+    <!-- Strings for App Functions -->
+    <!-- Description for the App Functions app metadata. -->
+    <string name="workspace_functions_app_display_description" translatable="false">[PLACEHOLDER] A tool to manage the Workspace</string>
 
-    <string name="manage_customization_header">Administrar personalización</string>
-    <string name="manage_customization_desc">De un vistazo usa esta configuración para mostrarte contenido apropiado para ti, como eventos, información de tu viaje diario y el pronóstico del clima</string>
+    <!-- Folder Creator -->
+    <string name="folder_creator_title" translatable="false">Create Folder(s)</string>
+    <string name="folder_creator_add" translatable="false">Add</string>
+    <string name="folder_creator_cancel" translatable="false">Cancel</string>
 
-    <string name="sensitive_lockscreen_title">Contenido sensible en la pantalla de bloqueo</string>
-    <string name="sensitive_lockscreen_summary">Recibe información personalizada en la pantalla de bloqueo</string>
-
-    <string name="app_data_customization_title">Personalizar con datos de apps</string>
-    <string name="app_data_customization_summary">Para información como el clima, viajes diarios y próximos eventos</string>
-
-    <string name="google_account_customization_title">Personalizar con datos de la Cuenta de Google</string>
-    <string name="google_account_customization_summary">Para información como próximos eventos, recordatorios y viajes</string>
-
-    <string name="google_activity_title">Usar tu actividad de Google</string>
-    <string name="google_activity_summary">Para información precisa sobre el clima, los viajes diarios y otros temas con Historial de ubicaciones y Actividad web y en aplicaciones</string>
-
-    <string name="assistant_results_title">Resultados personales de Asistente</string>
-    <string name="assistant_results_summary">Para recibir información específica para ti, como eventos próximos del Calendario</string>
-
-    <string name="home_work_address_title">Direcciones de casa y de trabajo</string>
-    <string name="home_work_address_summary">Configura una dirección de casa y una de trabajo para obtener información pertinente sobre tus viajes diarios</string>
-
-    <string name="gmail_smart_features_title">Funciones inteligentes de Gmail</string>
-    <string name="gmail_smart_features_summary">Para experiencias personalizadas de contenido de correo electrónico, chat y video, como detalles de vuelos y otra información de viaje</string>
-
-    <string name="location_title">Ubicación</string>
-    <string name="location_summary">Para información precisa sobre el clima y contenido pertinente basado en tu ubicación</string>
-
-    <!-- Personalizar / Customize toggles -->
-    <string name="customize_header">Personalizar</string>
-
-    <string name="toggle_weather_title">Clima</string>
-    <string name="toggle_weather_summary">Información del clima</string>
-
-    <string name="toggle_sports_title">Deportes</string>
-    <string name="toggle_sports_summary">Mostrar novedades deportivas de Google. Estas actualizaciones pueden afectar la duración de la batería. &lt;u>Elige tus equipos&lt;/u></string>
-
-    <string name="toggle_finance_title">Finanzas</string>
-    <string name="toggle_finance_summary">Mostrar novedades financieras de Google. &lt;u>Elige tus acciones&lt;/u></string>
-
-    <string name="toggle_air_quality_title">Calidad del aire</string>
-    <string name="toggle_air_quality_summary">Alertas sobre la calidad del aire</string>
-
-    <string name="toggle_alerts_title">Alertas</string>
-    <string name="toggle_alerts_summary">Alertas de clima extremo</string>
-
-    <string name="toggle_earthquake_title">Alerta de sismos</string>
-    <string name="toggle_earthquake_summary">Alertar cuando se detecta un sismo cercano con una magnitud superior a 4.5</string>
-
-    <string name="toggle_upcoming_title">Próximamente</string>
-    <string name="toggle_upcoming_summary">Calendario, eventos, reservas de hoteles y recordatorios</string>
-
-    <string name="toggle_work_profile_title">Perfil de trabajo</string>
-    <string name="toggle_work_profile_summary">Calendario, eventos y recordatorios del perfil de trabajo</string>
-
-    <string name="toggle_food_orders_title">Pedidos de comida y artículos domésticos</string>
-    <string name="toggle_food_orders_summary">Estados de entrega y retiro</string>
-
-    <string name="toggle_packages_title">Entrega de paquetes</string>
-    <string name="toggle_packages_summary">Mostrar cuando se entrega o se recoge un paquete</string>
-
-    <string name="toggle_commute_title">Viaje diario</string>
-    <string name="toggle_commute_summary">Información sobre el tráfico y tiempo de viaje</string>
-
-    <string name="toggle_departure_time_title">Hora de salir</string>
-    <string name="toggle_departure_time_summary">Hora de salida recomendada para llegar a próximos eventos</string>
-
-    <string name="toggle_rideshare_title">Transporte compartido</string>
-    <string name="toggle_rideshare_summary">Mostrar el estado del viaje</string>
-
-    <string name="toggle_trips_title">Viajes</string>
-    <string name="toggle_trips_summary">Vuelos, trenes y otra información sobre viajes de Gmail</string>
-
-    <string name="toggle_bedtime_title">Hora de dormir</string>
-    <string name="toggle_bedtime_summary">Tu próxima hora de dormir desde la app de Reloj</string>
-
-    <string name="toggle_fitness_title">Fitness</string>
-    <string name="toggle_fitness_summary">Información sobre tu actividad de algunas de tus apps de fitness</string>
-
-    <string name="toggle_safety_title">Verificación de seguridad</string>
-    <string name="toggle_safety_summary">Cuenta regresiva de la Verificación de seguridad desde la app de Seguridad personal</string>
-
-    <string name="toggle_timer_title">Temporizador y cronómetro</string>
-    <string name="toggle_timer_summary">Información sobre el temporizador y el cronómetro desde la app de Reloj</string>
-
-    <string name="toggle_connected_devices_title">Dispositivos conectados</string>
-    <string name="toggle_connected_devices_summary">Estado de la conexión y la batería de Pixel Buds y más</string>
-
-    <string name="toggle_multi_device_timer_title">Temporizador multidispositivo</string>
-    <string name="toggle_multi_device_timer_summary">Información sobre los temporizadores de los dispositivos de tu casa</string>
-
-    <string name="toggle_doorbell_title">Timbre</string>
-    <string name="toggle_doorbell_summary">Mira quién está en la puerta cuando suena el timbre Nest</string>
-
-    <string name="toggle_flashlight_title">Linterna</string>
-    <string name="toggle_flashlight_summary">Atajo y recordatorio para cuando la linterna está encendida</string>
-
-    <!-- Sugerencias / Suggestions Settings -->
-    <string name="app_suggestions_header">SUGERENCIAS DE APPS</string>
-    <string name="suggestions_in_all_apps_title">Sugerencias en la lista de todas las apps</string>
-    <string name="suggestions_on_home_title">Sugerencias en la pantalla principal</string>
-    <string name="suggestions_on_home_summary">Fila inferior de las apps en la pantalla principal</string>
-    <string name="blocked_apps_title">Apps bloqueadas</string>
-    <string name="suggestions_info_footer">Las sugerencias de aplicaciones se basan en las apps que usaste recientemente, las que más usas y las rutinas</string>
-
-    <!-- Configuración de búsqueda / Search Settings -->
-    <string name="always_show_keyboard_title">Mostrar siempre el teclado</string>
-    <string name="always_show_keyboard_summary">Abre el teclado cuando deslizas el dedo hacia arriba en la pantalla principal para buscar</string>
-    <string name="web_search_title">Búsqueda web</string>
-    <string name="web_search_summary">Mostrar historial de búsqueda y sugerencias de la app de Google</string>
-    <string name="web_search_prefs_title">Preferencias de búsqueda web</string>
-    <string name="web_search_prefs_summary">Administra tu historial de búsqueda y más en la app de Google</string>
-    <string name="control_search_results_title">Controlar los resultados de la búsqueda</string>
-    <string name="control_search_results_summary">Administra lo que se muestra en los resultados de la búsqueda de tus apps, personas y más</string>
-
-    <!-- Configuración de lista de apps / App list settings -->
-    <string name="show_browser_tabs_title">Mostrar tarjetas de pestañas del navegador</string>
-    <string name="show_browser_tabs_summary">Muestra tarjetas para reanudar las pestañas del navegador.</string>
+    <!-- Custom Launcher Features -->
+    <string name="action_edit_label">Editar</string>
+    <string name="action_lock_app">Bloquear app</string>
+    <string name="recent_task_option_freeform">Ventana libre</string>
+    <string name="title_app_lock">Bloqueo de aplicaciones</string>
+    <string name="title_hidden_apps">Ocultar aplicaciones</string>
+    <string name="title_icon_pack">Paquetes de iconos</string>
+    <string name="icon_pack_default">Predeterminado del sistema</string>
+    <string name="app_lock_auth_title">Desbloquear aplicación</string>
+    <string name="app_lock_auth_subtitle">Usa tu huella dactilar o PIN para continuar</string>
 </resources>
