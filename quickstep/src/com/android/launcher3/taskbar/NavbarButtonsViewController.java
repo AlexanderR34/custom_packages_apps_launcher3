@@ -77,6 +77,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.SystemProperties;
+import android.os.UserHandle;
 import android.provider.Settings;
 import android.util.Property;
 import android.view.Gravity;
@@ -245,6 +246,8 @@ public class NavbarButtonsViewController implements TaskbarControllers.LoggableT
 
     private final Uri mButtonOrderChangedUri = Settings.Secure.getUriFor(
             Settings.Secure.NAVIGATIONBAR_KEY_ORDER);
+    private final Uri mButtonStyleChangedUri = Settings.Secure.getUriFor(
+            "nav_bar_buttons_style");
 
     // Initialized in init.
     private TaskbarControllers mControllers;
@@ -275,6 +278,7 @@ public class NavbarButtonsViewController implements TaskbarControllers.LoggableT
     private final Runnable mAutoDim = () -> mTaskbarTransitions.setAutoDim(true);
 
     private @Nullable SafeCloseable mSettingCacheSafeCloseable;
+    private @Nullable SafeCloseable mStyleSettingCacheSafeCloseable;
 
     private final boolean mIsUserUnlocked;
 
@@ -465,10 +469,36 @@ public class NavbarButtonsViewController implements TaskbarControllers.LoggableT
         }
     }
 
+    private boolean isHyperOSButtonsStyle() {
+        return Settings.Secure.getIntForUser(
+                mContext.getContentResolver(),
+                "nav_bar_buttons_style", 0,
+                UserHandle.USER_CURRENT) == 1;
+    }
+
+    private void updateNavButtonDrawables() {
+        if (mBackButton != null) {
+            mBackButton.setImageResource(isHyperOSButtonsStyle()
+                    ? R.drawable.ic_sysbar_back_hyperos
+                    : R.drawable.ic_sysbar_back);
+        }
+        if (mHomeButton != null) {
+            mHomeButton.setImageResource(isHyperOSButtonsStyle()
+                    ? R.drawable.ic_sysbar_home_hyperos
+                    : R.drawable.ic_sysbar_home);
+        }
+        if (mRecentsButton != null) {
+            mRecentsButton.setImageResource(isHyperOSButtonsStyle()
+                    ? R.drawable.ic_sysbar_recent_hyperos
+                    : R.drawable.ic_sysbar_recent);
+        }
+        updateNavButtonColor();
+    }
+
     private void initButtons(ViewGroup navContainer, ViewGroup endContainer,
             TaskbarNavButtonController navButtonController) {
 
-        mBackButton = addButton(R.drawable.ic_sysbar_back, BUTTON_BACK,
+        mBackButton = addButton(isHyperOSButtonsStyle() ? R.drawable.ic_sysbar_back_hyperos : R.drawable.ic_sysbar_back, BUTTON_BACK,
                 mNavButtonContainer, mControllers.navButtonController, R.id.back);
         mBackButtonAlpha = new MultiValueAlpha(mBackButton, NUM_ALPHA_CHANNELS);
         mBackButtonAlpha.setUpdateVisibility(true);
@@ -509,7 +539,7 @@ public class NavbarButtonsViewController implements TaskbarControllers.LoggableT
         }
 
         // home button
-        mHomeButton = addButton(R.drawable.ic_sysbar_home, BUTTON_HOME, navContainer,
+        mHomeButton = addButton(isHyperOSButtonsStyle() ? R.drawable.ic_sysbar_home_hyperos : R.drawable.ic_sysbar_home, BUTTON_HOME, navContainer,
                 navButtonController, R.id.home);
         mHomeButtonAlpha = new MultiValueAlpha(mHomeButton, NUM_ALPHA_CHANNELS);
         mHomeButtonAlpha.setUpdateVisibility(true);
@@ -519,7 +549,7 @@ public class NavbarButtonsViewController implements TaskbarControllers.LoggableT
                                 && (flags & FLAG_TASKBAR_STASHED_ON_CD) == 0));
 
         // Recents button
-        mRecentsButton = addButton(R.drawable.ic_sysbar_recent, BUTTON_RECENTS,
+        mRecentsButton = addButton(isHyperOSButtonsStyle() ? R.drawable.ic_sysbar_recent_hyperos : R.drawable.ic_sysbar_recent, BUTTON_RECENTS,
                 navContainer, navButtonController, R.id.recent_apps);
         mHitboxExtender.init(mRecentsButton, mNavButtonsView, mContext.getDeviceProfile(),
                 () -> {
@@ -571,6 +601,13 @@ public class NavbarButtonsViewController implements TaskbarControllers.LoggableT
                                     isA11yButtonPersistent(),
                                     isA11yButtonVisible(),
                                     isMoreOptionsButtonVisible());
+                            return null;
+                        });
+
+        mStyleSettingCacheSafeCloseable = SettingsCache.INSTANCE.get(mContext)
+                .getListenableRef(mButtonStyleChangedUri).forEach(
+                        getTaskbarUiThread(), (style) -> {
+                            updateNavButtonDrawables();
                             return null;
                         });
     }
@@ -1242,6 +1279,10 @@ public class NavbarButtonsViewController implements TaskbarControllers.LoggableT
         if (mSettingCacheSafeCloseable != null) {
             mSettingCacheSafeCloseable.close();
             mSettingCacheSafeCloseable = null;
+        }
+        if (mStyleSettingCacheSafeCloseable != null) {
+            mStyleSettingCacheSafeCloseable.close();
+            mStyleSettingCacheSafeCloseable = null;
         }
 
         moveNavButtonsBackToTaskbarWindow();
