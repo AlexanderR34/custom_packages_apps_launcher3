@@ -328,6 +328,7 @@ public class BubbleTextView extends TextView implements ItemInfoUpdateReceiver,
         mIsRtl = (getResources().getConfiguration().getLayoutDirection()
                 == View.LAYOUT_DIRECTION_RTL);
         mDeviceProfile = mActivity.getDeviceProfile();
+        com.android.launcher3.util.LauncherFontManager.INSTANCE.applyFont(this);
         mCenterVertically = a.getBoolean(R.styleable.BubbleTextView_centerVertically, false);
 
         mDisplay = a.getInteger(R.styleable.BubbleTextView_iconDisplay, DISPLAY_WORKSPACE);
@@ -729,9 +730,26 @@ public class BubbleTextView extends TextView implements ItemInfoUpdateReceiver,
         return 1;
     }
 
+    protected boolean shouldHideLabel() {
+        android.content.SharedPreferences prefs = getContext().getSharedPreferences(
+                LauncherFiles.SHARED_PREFERENCES_KEY, Context.MODE_PRIVATE);
+        if (mDisplay == DISPLAY_WORKSPACE && prefs.getBoolean("pref_hide_workspace_labels", false)) {
+            return true;
+        }
+        if (mDisplay == DISPLAY_TASKBAR && prefs.getBoolean("pref_hide_dock_labels", false)) {
+            return true;
+        }
+        if (mDisplay == DISPLAY_ALL_APPS && prefs.getBoolean("pref_hide_all_apps_labels", false)) {
+            return true;
+        }
+        return false;
+    }
+
     @UiThread
     public void applyLabel(ItemInfo info) {
-        applyLabel(info.title, info.contentDescription,
+        CharSequence customTitle = com.android.launcher3.util.AppRenameManager.INSTANCE.getCustomLabel(
+                getContext(), info.getTargetComponent(), info.title);
+        applyLabel(customTitle, info.contentDescription,
                 info instanceof ItemInfoWithIcon infoWithIcon
                 && infoWithIcon.isInactiveArchive(), info.isDisabled());
     }
@@ -750,7 +768,9 @@ public class BubbleTextView extends TextView implements ItemInfoUpdateReceiver,
             mLastOriginalText = label;
             mLastModifiedText = mLastOriginalText;
             mBreakPointsIntArray = StringMatcherUtility.getListOfBreakpoints(label, MATCHER);
-            if (isTextWithArchivingIcon) {
+            if (shouldHideLabel()) {
+                setText("");
+            } else if (isTextWithArchivingIcon) {
                 setTextWithArchivingIcon(label);
             } else {
                 setText(label);
@@ -957,6 +977,28 @@ public class BubbleTextView extends TextView implements ItemInfoUpdateReceiver,
             final int scrollY = getScrollY();
             canvas.translate(scrollX, scrollY);
             mDotRenderer.draw(canvas, mDotParams);
+
+            android.content.SharedPreferences prefs = getContext().getSharedPreferences(
+                    LauncherFiles.SHARED_PREFERENCES_KEY, Context.MODE_PRIVATE);
+            if (prefs.getBoolean("pref_numbered_badges_enabled", true) && mDotInfo != null) {
+                int count = mDotInfo.getNotificationCount();
+                if (count > 0 && mDotParams.scale > 0.5f) {
+                    float dotRadius = mDotParams.iconBounds.width() * 0.12f;
+                    float dotCenterX = mDotParams.iconBounds.right - dotRadius;
+                    float dotCenterY = mDotParams.iconBounds.top + dotRadius;
+
+                    Paint textPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
+                    textPaint.setColor(Color.WHITE);
+                    textPaint.setTextSize(dotRadius * 1.3f);
+                    textPaint.setTextAlign(Paint.Align.CENTER);
+                    textPaint.setTypeface(Typeface.DEFAULT_BOLD);
+                    String countStr = count > 99 ? "99+" : String.valueOf(count);
+                    Paint.FontMetrics fm = textPaint.getFontMetrics();
+                    float yOffset = (fm.descent + fm.ascent) / 2f;
+                    canvas.drawText(countStr, dotCenterX, dotCenterY - yOffset, textPaint);
+                }
+            }
+
             canvas.translate(-scrollX, -scrollY);
         }
     }

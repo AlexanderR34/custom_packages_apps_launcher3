@@ -16,10 +16,12 @@ import javax.inject.Inject;
  */
 public class AppFilter {
 
+    private final Context mContext;
     private final Set<ComponentName> mFilteredComponents;
 
     @Inject
     public AppFilter(@ApplicationContext Context context) {
+        mContext = context;
         mFilteredComponents = Arrays.stream(
                 context.getResources().getStringArray(R.array.filtered_components))
                 .map(ComponentName::unflattenFromString)
@@ -27,6 +29,12 @@ public class AppFilter {
     }
 
     public boolean shouldShowApp(ComponentName app) {
-        return !mFilteredComponents.contains(app);
+        if (mFilteredComponents.contains(app)) {
+            return false;
+        }
+        if (com.android.launcher3.util.HiddenAppsManager.INSTANCE.isAppHidden(mContext, app)) {
+            return false;
+        }
+        return true;
     }
 }

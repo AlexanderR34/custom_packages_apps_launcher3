@@ -123,6 +123,27 @@ public class Hotseat extends CellLayout implements Insettable {
                 VIEW_TRANSLATE_X, ICONS_TRANSLATION_X_CHANNELS_COUNT, Float::sum);
         mQsbAlphaChannels = new MultiValueAlpha(mQsb, ALPHA_CHANNEL_CHANNELS_COUNT);
         mQsbAlphaChannels.setUpdateVisibility(true);
+        setWillNotDraw(false);
+    }
+
+    private final android.graphics.Paint mShelfPaint = new android.graphics.Paint(android.graphics.Paint.ANTI_ALIAS_FLAG);
+    private final android.graphics.RectF mShelfRect = new android.graphics.RectF();
+
+    @Override
+    protected void onDraw(android.graphics.Canvas canvas) {
+        boolean shelfEnabled = com.android.launcher3.LauncherPrefs.getPrefs(getContext())
+                .getBoolean("pref_dock_shelf_enabled", false);
+        if (shelfEnabled && !mHasVerticalHotseat) {
+            float padH = 16f * getResources().getDisplayMetrics().density;
+            float padV = 6f * getResources().getDisplayMetrics().density;
+            mShelfRect.set(padH, padV, getWidth() - padH, getHeight() - padV);
+            int shelfColor = com.android.launcher3.util.Themes.getAttrColor(getContext(), R.attr.workspaceAccentColor);
+            mShelfPaint.setColor(android.graphics.Color.argb(50, android.graphics.Color.red(shelfColor),
+                    android.graphics.Color.green(shelfColor), android.graphics.Color.blue(shelfColor)));
+            float radius = 24f * getResources().getDisplayMetrics().density;
+            canvas.drawRoundRect(mShelfRect, radius, radius, mShelfPaint);
+        }
+        super.onDraw(canvas);
     }
 
     /** Provides translation X for hotseat icons for the channel. */

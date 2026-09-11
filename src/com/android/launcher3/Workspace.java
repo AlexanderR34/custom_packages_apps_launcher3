@@ -1775,6 +1775,13 @@ public class Workspace<T extends View & PageIndicator> extends PagedView<T>
     }
 
     public void startDrag(CellInfo cellInfo, DragOptions options) {
+        android.content.SharedPreferences prefs = getContext().getSharedPreferences(
+                LauncherFiles.SHARED_PREFERENCES_KEY, Context.MODE_PRIVATE);
+        if (prefs.getBoolean("pref_lock_desktop", false)) {
+            android.widget.Toast.makeText(getContext(), "La pantalla de inicio está bloqueada", android.widget.Toast.LENGTH_SHORT).show();
+            return;
+        }
+
         View child = cellInfo.cell;
 
         mDragInfo = cellInfo;

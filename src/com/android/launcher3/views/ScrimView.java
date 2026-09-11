@@ -70,6 +70,13 @@ public class ScrimView extends View implements Insettable {
 
     @Override
     public void setBackgroundColor(int color) {
+        int userOpacity = com.android.launcher3.LauncherPrefs.getPrefs(getContext())
+                .getInt("pref_drawer_opacity", 100);
+        if (userOpacity < 100 && userOpacity >= 0) {
+            int origAlpha = android.graphics.Color.alpha(color);
+            int newAlpha = (int) (origAlpha * (userOpacity / 100f));
+            color = android.graphics.Color.argb(newAlpha, android.graphics.Color.red(color), android.graphics.Color.green(color), android.graphics.Color.blue(color));
+        }
         mBackgroundColor = color;
         updateSysUiColors();
         dispatchVisibilityListenersIfNeeded();

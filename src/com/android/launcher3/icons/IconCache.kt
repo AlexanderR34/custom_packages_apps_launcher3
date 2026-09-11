@@ -601,6 +601,16 @@ constructor(
         info.title = Utilities.trim(packageEntry.title)
         info.contentDescription = packageEntry.contentDescription
         info.bitmap = packageEntry.bitmap
+
+        val targetComp = info.targetComponent
+        if (targetComp != null) {
+            val packIcon = IconPackManager.getIconForComponent(context, targetComp)
+            if (packIcon != null) {
+                iconFactory.use { iconFactory ->
+                    info.bitmap = iconFactory.createBadgedIconBitmap(packIcon, BaseIconFactory.IconOptions())
+                }
+            }
+        }
     }
 
     fun updateSessionCache(key: PackageUserKey, info: SessionInfo) =

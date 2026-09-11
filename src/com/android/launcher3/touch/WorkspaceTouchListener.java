@@ -232,4 +232,55 @@ public class WorkspaceTouchListener extends GestureDetector.SimpleOnGestureListe
             }
         }
     }
+
+    @Override
+    public boolean onDoubleTap(MotionEvent e) {
+        if (mLauncher.isInState(NORMAL) && AbstractFloatingView.getTopOpenView(mLauncher) == null) {
+            boolean dt2sEnabled = com.android.launcher3.LauncherPrefs.getPrefs(mLauncher)
+                    .getBoolean("pref_double_tap_to_sleep", true);
+            if (dt2sEnabled) {
+                com.android.launcher3.util.DoubleTapSleepHelper.INSTANCE.sleep(mLauncher);
+                return true;
+            }
+        }
+        return super.onDoubleTap(e);
+    }
+
+    @Override
+    public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
+        if (e1 != null && e2 != null && mLauncher.isInState(NORMAL)
+                && AbstractFloatingView.getTopOpenView(mLauncher) == null) {
+            float deltaY = e2.getY() - e1.getY();
+            float deltaX = e2.getX() - e1.getX();
+            if (deltaY > mTouchSlop && Math.abs(velocityY) > Math.abs(velocityX) && velocityY > 200) {
+                boolean swipeDownEnabled = com.android.launcher3.LauncherPrefs.getPrefs(mLauncher)
+                        .getBoolean("pref_swipe_down_notifications", true);
+                if (swipeDownEnabled) {
+                    expandNotifications();
+                    return true;
+                }
+            }
+        }
+        return super.onFling(e1, e2, velocityX, velocityY);
+    }
+
+    private void expandNotifications() {
+        try {
+            Object service = mLauncher.getSystemService("statusbar");
+            if (service != null) {
+                java.lang.reflect.Method expand = service.getClass().getMethod("expandNotificationsPanel");
+                expand.invoke(service);
+            }
+        } catch (Exception e) {
+            try {
+                Class<?> statusBarManager = Class.forName("android.app.StatusBarManager");
+                java.lang.reflect.Method expand = statusBarManager.getMethod("expandNotificationsPanel");
+                Object service = mLauncher.getSystemService(statusBarManager);
+                if (service != null) {
+                    expand.invoke(service);
+                }
+            } catch (Exception ignored) {
+            }
+        }
+    }
 }

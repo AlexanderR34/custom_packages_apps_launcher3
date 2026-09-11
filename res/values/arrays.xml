@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Velocidad de animaciones -->
+    <string-array name="pref_animation_speed_entries">
+        <item>0.5x (Ultra Rápido)</item>
+        <item>0.75x (Rápido)</item>
+        <item>1.0x (Por defecto)</item>
+        <item>1.25x (Relajado)</item>
+        <item>1.5x (Lento)</item>
+    </string-array>
+
+    <string-array name="pref_animation_speed_values">
+        <item>0.5</item>
+        <item>0.75</item>
+        <item>1.0</item>
+        <item>1.25</item>
+        <item>1.5</item>
+    </string-array>
+
+    <!-- Forma de iconos -->
+    <string-array name="pref_icon_shape_entries">
+        <item>Por defecto del sistema</item>
+        <item>Círculo (Circle)</item>
+        <item>Squircle (Nothing OS / OneUI)</item>
+        <item>Cuadrado redondeado (Rounded Square)</item>
+        <item>Lágrima (Teardrop)</item>
+    </string-array>
+
+    <string-array name="pref_icon_shape_values">
+        <item>system</item>
+        <item>circle</item>
+        <item>squircle</item>
+        <item>rounded_square</item>
+        <item>teardrop</item>
+    </string-array>
+
+    <!-- Selector de Fuentes -->
+    <string-array name="pref_launcher_font_entries">
+        <item>Por defecto del sistema</item>
+        <item>Google Sans (Pixel)</item>
+        <item>Nothing NDOT (Nothing OS)</item>
+        <item>Roboto</item>
+        <item>Inter Medium</item>
+    </string-array>
+
+    <string-array name="pref_launcher_font_values">
+        <item>system</item>
+        <item>google_sans</item>
+        <item>nothing_ndot</item>
+        <item>roboto</item>
+        <item>inter</item>
+    </string-array>
+</resources>

@@ -18,23 +18,242 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:launcher="http://schemas.android.com/apk/res-auto">
 
-    <com.android.launcher3.settings.NotificationDotsPreference
-        android:key="pref_icon_badging"
-        android:title="@string/notification_dots_title"
-        android:persistent="false"
-        android:widgetLayout="@layout/notification_pref_warning" />
+    <androidx.preference.PreferenceCategory
+        android:title="Pantalla de inicio">
 
-    <!--
-      LAUNCHER_ADD_NEW_APPS_TO_HOME_SCREEN_ENABLED(613)
-      LAUNCHER_ADD_NEW_APPS_TO_HOME_SCREEN_DISABLED(614)
-    -->
-    <SwitchPreference
-        android:key="pref_add_icon_to_home"
-        android:title="@string/auto_add_shortcuts_label"
-        android:summary="@string/auto_add_shortcuts_description"
-        android:defaultValue="true"
-        android:persistent="true"
-        launcher:logIdOn="613"
-        launcher:logIdOff="614" />
+        <com.android.launcher3.settings.NotificationDotsPreference
+            android:key="pref_icon_badging"
+            android:title="@string/notification_dots_title"
+            android:persistent="false"
+            android:widgetLayout="@layout/notification_pref_warning" />
+
+        <ListPreference
+            android:key="pref_animation_speed"
+            android:title="Velocidad de animaciones"
+            android:summary="%s"
+            android:entries="@array/pref_animation_speed_entries"
+            android:entryValues="@array/pref_animation_speed_values"
+            android:defaultValue="1.0"
+            android:persistent="true" />
+
+        <SwitchPreference
+            android:key="pref_wallpaper_scrolling"
+            android:title="Desplazamiento del fondo de pantalla"
+            android:summary="Permite que el fondo de pantalla se mueva suavemente entre pantallas del escritorio"
+            android:defaultValue="true"
+            android:persistent="true" />
+
+        <SwitchPreference
+            android:key="pref_add_icon_to_home"
+            android:title="@string/auto_add_shortcuts_label"
+            android:summary="@string/auto_add_shortcuts_description"
+            android:defaultValue="true"
+            android:persistent="true"
+            launcher:logIdOn="613"
+            launcher:logIdOff="614" />
+
+        <SwitchPreference
+            android:key="pref_enable_minus_one"
+            android:title="Mostrar la app de Google"
+            android:summary="Al deslizar hacia la izquierda desde la pantalla principal para acceder a Google Discover"
+            android:defaultValue="true"
+            android:persistent="true"
+            launcher:logIdOn="617"
+            launcher:logIdOff="618" />
+
+        <SwitchPreference
+            android:key="pref_double_tap_to_sleep"
+            android:title="Doble toque para suspender"
+            android:summary="Toca dos veces un espacio vacío en la pantalla de inicio para apagar la pantalla"
+            android:defaultValue="true"
+            android:persistent="true" />
+
+        <SwitchPreference
+            android:key="pref_swipe_down_notifications"
+            android:title="Deslizar abajo para notificaciones"
+            android:summary="Desliza hacia abajo en cualquier parte de la pantalla de inicio para abrir el panel de notificaciones y ajustes rápidos"
+            android:defaultValue="true"
+            android:persistent="true" />
+
+        <SwitchPreference
+            android:key="pref_lock_desktop"
+            android:title="Bloquear diseño del escritorio"
+            android:summary="Evita mover, arrastrar o eliminar iconos y widgets en la pantalla de inicio"
+            android:defaultValue="false"
+            android:persistent="true" />
+    </androidx.preference.PreferenceCategory>
+
+    <androidx.preference.PreferenceCategory
+        android:title="De un vistazo (At a Glance / Smartspace)">
+
+        <SwitchPreference
+            android:key="pref_smartspace_enabled"
+            android:title="Activar 'De un vistazo'"
+            android:summary="Muestra fecha, clima dinámico, eventos de calendario y alarmas en la pantalla de inicio"
+            android:defaultValue="true"
+            android:persistent="true" />
+
+        <SwitchPreference
+            android:key="pref_smartspace_weather"
+            android:title="Información del clima"
+            android:summary="Muestra la temperatura y condición meteorológica en tiempo real"
+            android:defaultValue="true"
+            android:persistent="true" />
+    </androidx.preference.PreferenceCategory>
+
+    <androidx.preference.PreferenceCategory
+        android:title="Cajón de aplicaciones y búsqueda">
+
+        <SwitchPreference
+            android:key="pref_search_show_keyboard"
+            android:title="Abrir teclado siempre"
+            android:summary="Muestra el teclado automáticamente al abrir el cajón de aplicaciones"
+            android:defaultValue="false"
+            android:persistent="true" />
+
+        <SwitchPreference
+            android:key="pref_enable_two_line_toggle"
+            android:title="Nombres en dos líneas"
+            android:summary="Permite que las etiquetas de las aplicaciones largas usen dos líneas"
+            android:defaultValue="true"
+            android:persistent="true" />
+
+        <SwitchPreference
+            android:key="pref_all_apps_blur_enabled"
+            android:title="Desenfoque en el cajón de apps"
+            android:summary="Aplica efecto de desenfoque (Blur) al fondo al abrir el cajón"
+            android:defaultValue="true"
+            android:persistent="true" />
+
+        <SeekBarPreference
+            android:key="pref_drawer_opacity"
+            android:title="Opacidad del fondo del cajón"
+            android:summary="Ajusta el nivel de transparencia del fondo del cajón de aplicaciones"
+            android:defaultValue="100"
+            android:max="100"
+            launcher:min="0"
+            android:persistent="true"
+            launcher:showSeekBarValue="true"
+            launcher:updatesContinuously="true" />
+    </androidx.preference.PreferenceCategory>
+
+    <androidx.preference.PreferenceCategory
+        android:title="Dock y Barra de Búsqueda">
+
+        <SwitchPreference
+            android:key="pref_dock_shelf_enabled"
+            android:title="Fondo de cristal en el Dock (Glass Dock)"
+            android:summary="Muestra un panel translúcido esmerilado detrás de los iconos inferiores"
+            android:defaultValue="false"
+            android:persistent="true" />
+
+        <SwitchPreference
+            android:key="pref_dock_search_enabled"
+            android:title="Barra de búsqueda en el Dock"
+            android:summary="Barra de búsqueda de Google con acceso directo a Lens y micrófono"
+            android:defaultValue="true"
+            android:persistent="true" />
+
+        <SwitchPreference
+            android:key="pref_dock_blur_enabled"
+            android:title="Desenfoque en el Dock"
+            android:summary="Efecto de desenfoque translúcido en la barra de búsqueda"
+            android:defaultValue="true"
+            android:persistent="true" />
+
+        <SeekBarPreference
+            android:key="pref_blur_intensity_seekbar"
+            android:title="Intensidad del desenfoque"
+            android:summary="Ajusta la fuerza del efecto Blur en el launcher"
+            android:defaultValue="100"
+            android:max="150"
+            launcher:min="0"
+            android:persistent="true"
+            launcher:showSeekBarValue="true"
+            launcher:updatesContinuously="true" />
+    </androidx.preference.PreferenceCategory>
+
+    <androidx.preference.PreferenceCategory
+        android:title="Personalización y Tipografía">
+
+        <ListPreference
+            android:key="pref_launcher_font"
+            android:title="Fuente del launcher"
+            android:summary="%s"
+            android:entries="@array/pref_launcher_font_entries"
+            android:entryValues="@array/pref_launcher_font_values"
+            android:defaultValue="system"
+            android:persistent="true" />
+
+        <ListPreference
+            android:key="pref_icon_shape"
+            android:title="Forma de los iconos"
+            android:summary="%s"
+            android:entries="@array/pref_icon_shape_entries"
+            android:entryValues="@array/pref_icon_shape_values"
+            android:defaultValue="system"
+            android:persistent="true" />
+
+        <Preference
+            android:key="pref_icon_pack_selector"
+            android:title="Paquetes de iconos"
+            android:summary="Selecciona un pack de iconos descargado de Google Play o del sistema" />
+
+        <SwitchPreference
+            android:key="pref_force_monochrome_icons"
+            android:title="Forzar iconos temáticos (Monet)"
+            android:summary="Aplica color dinámico Material You incluso a las apps que no lo soportan de fábrica"
+            android:defaultValue="true"
+            android:persistent="true" />
+
+        <SwitchPreference
+            android:key="pref_numbered_badges_enabled"
+            android:title="Conteo numérico de notificaciones"
+            android:summary="Muestra el número de notificaciones no leídas dentro del badge en lugar de un punto simple"
+            android:defaultValue="true"
+            android:persistent="true" />
+
+        <SwitchPreference
+            android:key="pref_hide_workspace_labels"
+            android:title="Ocultar nombres en la pantalla de inicio"
+            android:summary="Oculta las etiquetas de texto de las aplicaciones en el escritorio"
+            android:defaultValue="false"
+            android:persistent="true" />
+
+        <SwitchPreference
+            android:key="pref_hide_dock_labels"
+            android:title="Ocultar nombres en el Dock"
+            android:summary="Oculta las etiquetas de texto de las apps en el Dock / Hotseat"
+            android:defaultValue="true"
+            android:persistent="true" />
+
+        <SwitchPreference
+            android:key="pref_hide_all_apps_labels"
+            android:title="Ocultar nombres en el cajón de apps"
+            android:summary="Oculta las etiquetas de texto en el listado de aplicaciones"
+            android:defaultValue="false"
+            android:persistent="true" />
+
+        <SwitchPreference
+            android:key="pref_big_folders_enabled"
+            android:title="Carpetas grandes 2x2"
+            android:summary="Permite carpetas ampliadas con acceso directo a las apps estilo Nothing OS y HyperOS"
+            android:defaultValue="true"
+            android:persistent="true" />
+    </androidx.preference.PreferenceCategory>
+
+    <androidx.preference.PreferenceCategory
+        android:title="Privacidad">
+
+        <Preference
+            android:key="pref_app_lock_menu"
+            android:title="Bloqueo de aplicaciones"
+            android:summary="Protege aplicaciones con huella dactilar o PIN de desbloqueo" />
+
+        <Preference
+            android:key="pref_hidden_apps_menu"
+            android:title="Ocultar aplicaciones"
+            android:summary="Gestiona las aplicaciones ocultas del cajón de apps" />
+    </androidx.preference.PreferenceCategory>
 
 </androidx.preference.PreferenceScreen>

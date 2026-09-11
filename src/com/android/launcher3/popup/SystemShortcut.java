@@ -146,6 +146,87 @@ public abstract class SystemShortcut<T extends ActivityContext> extends ItemInfo
         SystemShortcut<T> getShortcut(T context, ItemInfo itemInfo, @NonNull View originalView);
     }
 
+    public static final Factory<ActivityContext> EDIT_APP = (context, itemInfo, originalView) -> {
+        if (itemInfo == null || itemInfo.getTargetComponent() == null) {
+            return null;
+        }
+        return new EditApp<>(context, itemInfo, originalView);
+    };
+
+    public static class EditApp<T extends ActivityContext> extends SystemShortcut<T> {
+        public EditApp(T target, ItemInfo itemInfo, @NonNull View originalView) {
+            super(R.drawable.gm_edit_24, R.string.action_edit_label, target, itemInfo, originalView);
+        }
+
+        @Override
+        public void onClick(View view) {
+            dismissTaskMenuView();
+            com.android.launcher3.util.AppRenameManager.INSTANCE.showRenameDialog(
+                    view.getContext(), mItemInfo);
+        }
+    }
+
+    public static final Factory<ActivityContext> FREEFORM_POPUP = (context, itemInfo, originalView) -> {
+        if (itemInfo == null || itemInfo.getTargetComponent() == null) {
+            return null;
+        }
+        return new FreeformPopup<>(context, itemInfo, originalView);
+    };
+
+    public static class FreeformPopup<T extends ActivityContext> extends SystemShortcut<T> {
+        public FreeformPopup(T target, ItemInfo itemInfo, @NonNull View originalView) {
+            super(R.drawable.ic_caption_desktop_button_foreground,
+                    R.string.recent_task_option_freeform, target, itemInfo, originalView);
+        }
+
+        @Override
+        public void onClick(View view) {
+            dismissTaskMenuView();
+            if (mItemInfo.getTargetComponent() != null) {
+                Intent intent = new Intent(Intent.ACTION_MAIN)
+                        .addCategory(Intent.CATEGORY_LAUNCHER)
+                        .setComponent(mItemInfo.getTargetComponent())
+                        .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_MULTIPLE_TASK);
+                try {
+                    android.app.ActivityOptions options = android.app.ActivityOptions.makeBasic();
+                    java.lang.reflect.Method setLaunchWindowingMode =
+                            android.app.ActivityOptions.class.getMethod("setLaunchWindowingMode", int.class);
+                    setLaunchWindowingMode.invoke(options, 5);
+                    view.getContext().startActivity(intent, options.toBundle());
+                } catch (Exception e) {
+                    try {
+                        view.getContext().startActivity(intent);
+                    } catch (Exception ignored) { }
+                }
+            }
+        }
+    }
+
+    public static final Factory<ActivityContext> LOCK_APP = (context, itemInfo, originalView) -> {
+        if (itemInfo == null || itemInfo.getTargetComponent() == null) {
+            return null;
+        }
+        return new LockApp<>(context, itemInfo, originalView);
+    };
+
+    public static class LockApp<T extends ActivityContext> extends SystemShortcut<T> {
+        public LockApp(T target, ItemInfo itemInfo, @NonNull View originalView) {
+            super(R.drawable.ic_setting, R.string.action_lock_app, target, itemInfo, originalView);
+        }
+
+        @Override
+        public void onClick(View view) {
+            dismissTaskMenuView();
+            if (mItemInfo != null && mItemInfo.getTargetComponent() != null) {
+                String pkg = mItemInfo.getTargetComponent().getPackageName();
+                boolean locked = com.android.launcher3.util.AppLockManager.toggleAppLock(view.getContext(), pkg);
+                android.widget.Toast.makeText(view.getContext(),
+                        locked ? "Aplicación bloqueada con huella/PIN" : "Aplicación desbloqueada",
+                        android.widget.Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
+
     public static final Factory<ActivityContext> WIDGETS = (context, itemInfo, originalView) -> {
         final PackageUserKey packageUserKey = PackageUserKey.fromItemInfo(itemInfo);
         if (packageUserKey == null) return null;
