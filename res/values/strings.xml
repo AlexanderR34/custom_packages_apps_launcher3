@@ -722,4 +722,6 @@
     <string name="suggestions_title">Sugerencias</string>
     <string name="search_settings_title">Ajustes de búsqueda</string>
     <string name="app_list_settings_title">Ajustes de la lista de apps</string>
+    <string name="home_settings_title">Ajustes de pantalla de inicio</string>
+    <string name="settings_title">Ajustes de pantalla de inicio</string>
 </resources>
